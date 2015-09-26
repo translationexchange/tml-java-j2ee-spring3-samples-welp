@@ -24,7 +24,7 @@ public class WelpListener extends TmlListener {
 //		));
 
 		Tml.getConfig().setCache(Utils.buildMap(
-				"enabled",  true,	
+				"enabled",  false,	
 		    	"class", 	"com.translationexchange.cache.EHCache",
 		        "namespace", "0332a07e97af3d81f6fe9723cc083df3a45fbd39d1380691c62e445c598b8d5c"
 		));
