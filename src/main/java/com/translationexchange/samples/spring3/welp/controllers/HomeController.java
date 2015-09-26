@@ -31,33 +31,54 @@
 
 package com.translationexchange.samples.spring3.welp.controllers;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.translationexchange.core.Utils;
+
 @Controller
 public class HomeController {
-
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-
-		model.addAttribute("message", "Spring 3 MVC Hello World");
-		return "hello";
-
-	}
-
-	@RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
-	public ModelAndView hello(@PathVariable("name") String name) {
-
-		ModelAndView model = new ModelAndView();
-		model.setViewName("hello");
-		model.addObject("msg", name);
-
-		return model;
-
-	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView index(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
+		ModelAndView model = new ModelAndView();
+		model.setViewName("index");
+		model.addObject("restaurants", Utils.buildList(
+			Utils.buildMap(
+				"name", "Ricky's Fish Tacos",
+				"rating", 4,
+				"review_count", 14,
+				"last_comment", "Luckily, the perfect hot day food is a fish taco."
+			),
+			Utils.buildMap(
+				"name", "Genwa Korean Bbq",
+				"rating", 3,
+				"review_count", 567,
+				"last_comment", "I love love love the fact that you get 25 side dishes."
+			),
+			Utils.buildMap(
+				"name", "Kang Hodong Baekjeong",
+				"rating", 2,
+				"review_count", 1,
+				"last_comment", "Thick slices of juicy pastrami on rye hits the spot every time."
+			),
+			Utils.buildMap(
+				"name", "Guisados",
+				"rating", 1,
+				"review_count", 12,
+				"last_comment", "I can't wait to introduce more people to these orgasmic tacos."
+			)
+		));		
+		return model;
+	}
+
 }
