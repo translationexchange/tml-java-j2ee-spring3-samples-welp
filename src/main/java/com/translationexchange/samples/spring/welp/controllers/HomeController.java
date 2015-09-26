@@ -29,7 +29,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.translationexchange.samples.spring3.welp.controllers;
+package com.translationexchange.samples.spring.welp.controllers;
 
 import java.io.IOException;
 
