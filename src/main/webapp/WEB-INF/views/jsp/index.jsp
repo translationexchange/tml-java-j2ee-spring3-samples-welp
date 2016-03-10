@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="tml" uri="/tml-tags" %>
+<%@ taglib prefix="tml" uri="http://www.translationexchange.com/tml" %>
 
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" <tml:language_attributes/> >
@@ -37,7 +37,7 @@
 	                <li><a href="#"><tml:tr label="Help"/></a></li>
 	            </ul>
 	            <ul class="nav navbar-nav navbar-right">
-	                <tml:language_selector type="bootstrap" element="li" />
+	                <tml:language_selector type="sideflags" />
 	                <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		                    <tml:tr label="More {caret}" token.caret="<b class='caret'></b>" />
